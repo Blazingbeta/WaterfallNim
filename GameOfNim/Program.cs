@@ -10,7 +10,9 @@ namespace GameOfNim
 	{
 		static void Main(string[] args)
 		{
-			//Play nim
+            //Play nim
+            NimController.SetUpInstance();
+            NimController.Instance.RunNim();
 		}
 	}
 }

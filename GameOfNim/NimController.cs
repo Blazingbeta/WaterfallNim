@@ -14,8 +14,9 @@ namespace GameOfNim {
         private AudioManager audioMan;
         public static NimController Instance;
 
-        public void SetUpInstance() {
+        public static bool SetUpInstance() {
             Instance = new NimController();
+            return true;
         }
 
         public void RunNim() {
@@ -150,6 +151,7 @@ namespace GameOfNim {
                             "\n\nFor example, you can pick up to 2 sticks from Pile 1, or up to 7 sticks from Pile 3." +
                             "\nIf you pick up the last stick, you lose." +
                             "\nPress Enter to go back.");
+                        Console.ReadLine();
                         break;
                     case 4:
                         playing = false;
