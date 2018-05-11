@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace GameOfNim {
     public class NimController {
 
-        //private Player player1;
-        //private Player player2;
-        //private AudioManager audioMan;
+        private Player player1;
+        private Player player2;
         private int[] heaps;
+
+        private AudioManager audioMan;
         public static NimController Instance;
 
         public void SetUpInstance() {
