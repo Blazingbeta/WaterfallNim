@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +12,12 @@ namespace GameOfNim {
         private Player player2;
         private int[] heaps;
 
-        private AudioManager audioMan;
+        private AudioManager audioMan = new AudioManager();
         public static NimController Instance;
 
         public static bool SetUpInstance() {
             Instance = new NimController();
+            Instance.SetConsoleFont();
             return true;
         }
 
@@ -206,8 +208,24 @@ namespace GameOfNim {
         }
 
 
-        private void SetConsoleFont() {
+        public void SetConsoleFont(string fontName = "Comic Sans MS") {
+            unsafe {
+                IntPtr hnd = ConsoleHelpers.GetStdHandle(-11);
+                IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
+                if (hnd != INVALID_HANDLE_VALUE) {
+                    // Set console font to Comic Sans MS
+                    ConsoleHelpers.CONSOLE_FONT_INFO_EX newInfo = new ConsoleHelpers.CONSOLE_FONT_INFO_EX();
+                    newInfo.cbSize = (uint)Marshal.SizeOf(newInfo);
+                    newInfo.FontFamily = 4;
+                    IntPtr ptr = new IntPtr(newInfo.FaceName);
+                    Marshal.Copy(fontName.ToCharArray(), 0, ptr, fontName.Length);
 
+                    // Get some settings from current font.
+                    newInfo.dwFontSize = new ConsoleHelpers.COORD(20, 20);
+                    newInfo.FontWeight = 14;
+                    ConsoleHelpers.SetCurrentConsoleFontEx(hnd, false, ref newInfo);
+                }
+            }
         }
     }
 }
