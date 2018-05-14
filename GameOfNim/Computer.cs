@@ -37,6 +37,7 @@ namespace GameOfNim
 					break;
 
 			}
+			Console.WriteLine(playerName + " took " + Amount + " from heap " + Heap);
 		}
 		/// <summary>
 		/// Takes a random amount from a random valid heap
@@ -113,6 +114,33 @@ namespace GameOfNim
 		private void TurnHard(out int Heap, out int Amount)
 		{
 			int[] board = NimController.Instance.GetHeaps();
+			//Check if there is only one heap left, if so take all but one.
+			List<int> remainingIndicies = new List<int>();
+			for (int j = 0; j < board.Length; j++)
+			{
+				if (board[j] != 0)
+				{
+					remainingIndicies.Add(j);
+				}
+			}
+			//If there is only one heap left
+			if (remainingIndicies.Count == 1)
+			{
+				//We lose here
+				if (board[remainingIndicies[0]] == 1)
+				{
+					Heap = remainingIndicies[0];
+					Amount = 1;
+					return;
+				}
+				//We win
+				else
+				{
+					Heap = remainingIndicies[0];
+					Amount = board[remainingIndicies[0]] - 1;
+					return;
+				}
+			}
 			int nimSum = 0;
 			//Setup the nimSum of the board, the unbalanced binary amount that we need to take
 			for(int j = 0; j < board.Length; j++)
@@ -149,7 +177,7 @@ namespace GameOfNim
 					}
 				}
 				//If no heaps are large enough (unsure if this is possible)
-				Console.WriteLine("No heaps were large enough for the NimSum, debug these values.");
+				//Console.WriteLine("No heaps were large enough for the NimSum, debug these values.");
 				for (int j = 0; j < board.Length; j++)
 				{
 					if (board[j] > 0)
