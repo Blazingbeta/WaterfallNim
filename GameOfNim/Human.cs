@@ -30,11 +30,11 @@ namespace GameOfNim
 
             while(true)
             {
-                Console.WriteLine(playerName + " Please enter a heap number between 0 and " + (board.Length - 1));
+                Console.WriteLine(playerName + ": Please enter a heap number between 0 and " + (board.Length - 1));
                 tempHeap = NimController.GetIntInput();
                 if (tempHeap > board.Length - 1 || tempHeap < 0 || board[tempHeap] <= 0)
                 {
-                    Console.WriteLine(playerName + " That is not a valid heap selection.");
+                    Console.WriteLine(playerName + ": That is not a valid heap selection.");
                 }
                 else
                 {
@@ -44,11 +44,11 @@ namespace GameOfNim
 
             while(true)
             {
-                Console.WriteLine(playerName + " Please enter the number you want to grab, (Up to " + board[tempHeap] + ")");
+                Console.WriteLine(playerName + ": Please enter the number you want to grab, (Up to " + board[tempHeap] + ")");
                 tempAmount = NimController.GetIntInput();
                 if(tempAmount > board[tempHeap] || tempAmount < 1)
                 {
-                    Console.WriteLine(playerName + " That is not a valid amount to select.");
+                    Console.WriteLine(playerName + ": That is not a valid amount to select.");
                 }
                 else
                 {
