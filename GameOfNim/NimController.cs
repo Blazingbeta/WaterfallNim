@@ -124,7 +124,7 @@ namespace GameOfNim {
 
                         Console.WriteLine("What is the computer's difficulty?");
                         int diff = GetMenuInput(difficultyMenu);
-                        player2 = new Computer(diff);
+                        player2 = new Computer(diff - 1);
 
                         while (!hasWon) {
                             DisplayHeaps();
