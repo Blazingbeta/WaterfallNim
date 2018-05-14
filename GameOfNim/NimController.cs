@@ -191,7 +191,7 @@ namespace GameOfNim {
                 Console.WriteLine("That is not a valid int.");
                 NimController.Instance.audioMan.InvalidBeep();
             }
-            NimController.Instance.audioMan.ValidBeep();
+            //NimController.Instance.audioMan.ValidBeep();
             return num;
         }
         public static int GetMenuInput(List<string> options) {
