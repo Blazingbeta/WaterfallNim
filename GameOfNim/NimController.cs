@@ -85,6 +85,7 @@ namespace GameOfNim {
                             if (heaps.Sum() == 0) {
                                 Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
+                                break;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
@@ -135,6 +136,7 @@ namespace GameOfNim {
                             if(heaps.Sum() == 0) {
                                 Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
+                                break;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
