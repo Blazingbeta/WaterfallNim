@@ -165,6 +165,7 @@ namespace GameOfNim {
 
         public void DisplayHeaps() {
             for(int i = 0; i < heaps.Length; i++) {
+                Console.Write(i + ". ");
                 for(int y = 0; y < heaps[i]; y++) {
                     Console.Write("| ");
                 }
