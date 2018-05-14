@@ -148,7 +148,7 @@ namespace GameOfNim {
                         break;
                     case 3:
                         Console.WriteLine("\nNim is a game about picking up sticks. " +
-                            "\nThere are several piles of sticks.You can choose to pick up as many as want from any pile." +
+                            "\nThere are several piles of sticks. You can choose to pick up as many as you want from any pile." +
                             "\n\nHeap 1: | |" +
                             "\nHeap 2: | | | | |" +
                             "\nHeap 3: | | | | | | |" +
