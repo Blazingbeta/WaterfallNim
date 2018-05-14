@@ -83,14 +83,14 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
+                                Console.WriteLine("\n" + player2.playerName + " Won!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
+                                Console.WriteLine("\n" + player1.playerName + " Won!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
@@ -133,14 +133,14 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if(heaps.Sum() == 0) {
-                                Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
+                                Console.WriteLine("\n" + player2.playerName + " Won!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
+                                Console.WriteLine("\n" +player1.playerName + " Won!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
@@ -162,13 +162,13 @@ namespace GameOfNim {
                         break;
                 }
             }
-            Console.WriteLine("Thanks for Playing");
+            Console.WriteLine("\nThanks for Playing");
         }
 
         public void DisplayHeaps() {
             Console.WriteLine();
             for(int i = 0; i < heaps.Length; i++) {
-                Console.Write(i + ". ");
+                Console.Write("Heap " + i + ". ");
                 for(int y = 0; y < heaps[i]; y++) {
                     Console.Write("| ");
                 }
