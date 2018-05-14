@@ -32,7 +32,7 @@ namespace GameOfNim
             {
                 Console.WriteLine("Please enter a heap number between 0 and " + (board.Length - 1));
                 tempHeap = NimController.GetIntInput();
-                if (tempHeap > board.Length - 1 ||tempHeap < 0)
+                if (tempHeap > board.Length - 1 || tempHeap < 0 || board[tempHeap] <= 0)
                 {
                     Console.WriteLine("That is not a valid heap selection.");
                 }
