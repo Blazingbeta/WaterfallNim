@@ -15,6 +15,7 @@ namespace GameOfNim
 		public Computer(int level)
 		{
 			m_difficulty = level;
+			playerName = "Computer 2";
 		}
 		/// <summary>
 		/// Takes a turn based on this computer's difficulty value
@@ -48,7 +49,7 @@ namespace GameOfNim
 			Random rng = new Random();
 			Heap = rng.Next(board.Length);
 			//Loops until we randomly select a good value
-			while(board[Heap] != 0)
+			while(board[Heap] == 0)
 			{
 				Heap = rng.Next(board.Length);
 			}
