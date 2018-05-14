@@ -180,6 +180,7 @@ namespace GameOfNim {
 
         public static string GetStringInput() {
             string input = Console.ReadLine();
+            NimController.Instance.audioMan.ValidBeep();
 
             return input;
         }
@@ -188,8 +189,9 @@ namespace GameOfNim {
 
             while(!int.TryParse(Console.ReadLine(), out num)) {
                 Console.WriteLine("That is not a valid int.");
+                NimController.Instance.audioMan.InvalidBeep();
             }
-
+            NimController.Instance.audioMan.ValidBeep();
             return num;
         }
         public static int GetMenuInput(List<string> options) {
@@ -203,6 +205,9 @@ namespace GameOfNim {
                 isInvalid = num < 1 || num > options.Count;
                 if (isInvalid) {
                     Console.WriteLine("Please enter a number between 1 and " + options.Count);
+                    NimController.Instance.audioMan.InvalidBeep();
+                } else {
+                    NimController.Instance.audioMan.ValidBeep();
                 }
             }
 
