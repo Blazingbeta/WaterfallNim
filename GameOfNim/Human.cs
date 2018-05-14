@@ -35,9 +35,12 @@ namespace GameOfNim
                 if (tempHeap > board.Length - 1 || tempHeap < 0 || board[tempHeap] <= 0)
                 {
                     Console.WriteLine(playerName + ": That is not a valid heap selection.");
+                    NimController.Instance.audioMan.InvalidBeep();
                 }
                 else
                 {
+                    NimController.Instance.audioMan.ValidBeep();
+
                     break;
                 }
             }
@@ -49,9 +52,12 @@ namespace GameOfNim
                 if(tempAmount > board[tempHeap] || tempAmount < 1)
                 {
                     Console.WriteLine(playerName + ": That is not a valid amount to select.");
+                NimController.Instance.audioMan.InvalidBeep();
                 }
                 else
                 {
+                    NimController.Instance.audioMan.ValidBeep();
+
                     break;
                 }
             }
