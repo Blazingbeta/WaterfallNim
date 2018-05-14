@@ -12,7 +12,7 @@ namespace GameOfNim {
         private Player player2;
         private int[] heaps;
 
-        private AudioManager audioMan = new AudioManager();
+        public AudioManager audioMan = new AudioManager();
         public static NimController Instance;
 
         public static bool SetUpInstance() {
