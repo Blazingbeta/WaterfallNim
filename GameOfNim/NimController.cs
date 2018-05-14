@@ -47,7 +47,7 @@ namespace GameOfNim {
                 int amo;
                 switch (seletion) {
                     case 1:
-                        Console.WriteLine("What board size do you want to play?");
+                        Console.WriteLine("W.hat board size do you want to play?");
                         boardType = GetMenuInput(boardMenu);
                         switch (boardType) {
                             case 1:
@@ -70,11 +70,11 @@ namespace GameOfNim {
                                 break;
                         }
 
-                        Console.WriteLine("What is Player 1's name?");
+                        Console.WriteLine("W.hat is Player 1's name?");
                         name = GetStringInput();
                         player1 = new Human(name, 1);
 
-                        Console.WriteLine("What is Player 2's name?");
+                        Console.WriteLine("W.hat is Player 2's name?");
                         name = GetStringInput();
                         player2 = new Human(name, 2);
 
@@ -83,21 +83,21 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine("\n" + player2.playerName + " Won!" + player1.playerName + " Lost!\n");
+                                Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine("\n" + player1.playerName + " Won!" + player2.playerName + " Lost!\n");
+                                Console.WriteLine("\n" + player1.playerName + " W.on!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
 
                         break;
                     case 2:
-                        Console.WriteLine("What board size do you want to play?");
+                        Console.WriteLine("W.hat board size do you want to play?");
                         boardType = GetMenuInput(boardMenu);
                         switch (boardType) {
                             case 1:
@@ -120,11 +120,11 @@ namespace GameOfNim {
                                 break;
                         }
 
-                        Console.WriteLine("What is Player 1's name?");
+                        Console.WriteLine("W.hat is Player 1's name?");
                         name = GetStringInput();
                         player1 = new Human(name, 1);
 
-                        Console.WriteLine("What is the computer's difficulty?");
+                        Console.WriteLine("W.hat is the computer's difficulty?");
                         int diff = GetMenuInput(difficultyMenu);
                         player2 = new Computer(diff - 1);
 
@@ -133,14 +133,14 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if(heaps.Sum() == 0) {
-                                Console.WriteLine("\n" + player2.playerName + " Won!" + player1.playerName + " Lost!\n");
+                                Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine("\n" +player1.playerName + " Won!" + player2.playerName + " Lost!\n");
+                                Console.WriteLine("\n" +player1.playerName + " W.on!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
