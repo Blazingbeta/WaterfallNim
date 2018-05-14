@@ -24,13 +24,13 @@ namespace GameOfNim {
 
         public void RunNim() {
             List<string> gameMenu = new List<string>(
-                    new string[] { "Play Player vs. Player", "Play Player vs. Computer", "Rules of Nim", "Quit" }
+                    new string[] { "Play Player vs. Player", "Play Player vs. Computer", "Rules of N.im", "Quit" }
                 );
             List<string> boardMenu = new List<string>(
                 new string[] { "3 x 3", "2 x 5 x 7", "2 x 3 x 8 x 9"}
                 );
             List<string> difficultyMenu = new List<string>(
-                new string[] { "Easy", "Medium", "Hard" }
+                new string[] { "Easy", "M.edium", "Hard" }
                 );
 
             bool playing = true;
@@ -147,7 +147,7 @@ namespace GameOfNim {
 
                         break;
                     case 3:
-                        Console.WriteLine("\nNim is a game about picking up sticks. " +
+                        Console.WriteLine("\nN.im is a game about picking up sticks. " +
                             "\nThere are several piles of sticks. You can choose to pick up as many as you want from any pile." +
                             "\n\nHeap 1: | |" +
                             "\nHeap 2: | | | | |" +
