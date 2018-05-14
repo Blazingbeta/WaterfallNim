@@ -47,6 +47,7 @@ namespace GameOfNim {
                 int amo;
                 switch (seletion) {
                     case 1:
+                        Console.WriteLine("What board size do you want to play?");
                         boardType = GetMenuInput(boardMenu);
                         switch (boardType) {
                             case 1:
