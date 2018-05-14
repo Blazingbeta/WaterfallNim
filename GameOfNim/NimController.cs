@@ -18,6 +18,7 @@ namespace GameOfNim {
         public static bool SetUpInstance() {
             Instance = new NimController();
             Instance.SetConsoleFont();
+            Instance.audioMan.StartMusic();
             return true;
         }
 
