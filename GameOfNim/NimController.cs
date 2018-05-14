@@ -24,13 +24,13 @@ namespace GameOfNim {
 
         public void RunNim() {
             List<string> gameMenu = new List<string>(
-                    new string[] { "Play Player vs. Player", "Play Player vs. Computer", "Rules of Nim", "Quit" }
+                    new string[] { "Play Player vs. Player", "Play Player vs. Computer", "Rules of N.im", "Quit" }
                 );
             List<string> boardMenu = new List<string>(
                 new string[] { "3 x 3", "2 x 5 x 7", "2 x 3 x 8 x 9"}
                 );
             List<string> difficultyMenu = new List<string>(
-                new string[] { "Easy", "Medium", "Hard" }
+                new string[] { "Easy", "M.edium", "Hard" }
                 );
 
             bool playing = true;
@@ -47,7 +47,7 @@ namespace GameOfNim {
                 int amo;
                 switch (seletion) {
                     case 1:
-                        Console.WriteLine("What board size do you want to play?");
+                        Console.WriteLine("W.hat board size do you want to play?");
                         boardType = GetMenuInput(boardMenu);
                         switch (boardType) {
                             case 1:
@@ -70,11 +70,11 @@ namespace GameOfNim {
                                 break;
                         }
 
-                        Console.WriteLine("What is Player 1's name?");
+                        Console.WriteLine("W.hat is Player 1's name?");
                         name = GetStringInput();
                         player1 = new Human(name, 1);
 
-                        Console.WriteLine("What is Player 2's name?");
+                        Console.WriteLine("W.hat is Player 2's name?");
                         name = GetStringInput();
                         player2 = new Human(name, 2);
 
@@ -83,21 +83,22 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
+                                Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
+                                break;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
+                                Console.WriteLine("\n" + player1.playerName + " W.on!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
 
                         break;
                     case 2:
-                        Console.WriteLine("What board size do you want to play?");
+                        Console.WriteLine("W.hat board size do you want to play?");
                         boardType = GetMenuInput(boardMenu);
                         switch (boardType) {
                             case 1:
@@ -120,11 +121,11 @@ namespace GameOfNim {
                                 break;
                         }
 
-                        Console.WriteLine("What is Player 1's name?");
+                        Console.WriteLine("W.hat is Player 1's name?");
                         name = GetStringInput();
                         player1 = new Human(name, 1);
 
-                        Console.WriteLine("What is the computer's difficulty?");
+                        Console.WriteLine("W.hat is the computer's difficulty?");
                         int diff = GetMenuInput(difficultyMenu);
                         player2 = new Computer(diff - 1);
 
@@ -133,21 +134,22 @@ namespace GameOfNim {
                             player1.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if(heaps.Sum() == 0) {
-                                Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
+                                Console.WriteLine("\n" + player2.playerName + " W.on!" + player1.playerName + " Lost!\n");
                                 hasWon = true;
+                                break;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
-                                Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
+                                Console.WriteLine("\n" +player1.playerName + " W.on!" + player2.playerName + " Lost!\n");
                                 hasWon = true;
                             }
                         }
 
                         break;
                     case 3:
-                        Console.WriteLine("\nNim is a game about picking up sticks. " +
+                        Console.WriteLine("\nN.im is a game about picking up sticks. " +
                             "\nThere are several piles of sticks. You can choose to pick up as many as you want from any pile." +
                             "\n\nHeap 1: | |" +
                             "\nHeap 2: | | | | |" +
@@ -162,13 +164,13 @@ namespace GameOfNim {
                         break;
                 }
             }
-            Console.WriteLine("Thanks for Playing");
+            Console.WriteLine("\nThanks for Playing");
         }
 
         public void DisplayHeaps() {
             Console.WriteLine();
             for(int i = 0; i < heaps.Length; i++) {
-                Console.Write(i + ". ");
+                Console.Write("Heap " + i + ". ");
                 for(int y = 0; y < heaps[i]; y++) {
                     Console.Write("| ");
                 }
@@ -178,6 +180,7 @@ namespace GameOfNim {
 
         public static string GetStringInput() {
             string input = Console.ReadLine();
+            NimController.Instance.audioMan.ValidBeep();
 
             return input;
         }
@@ -186,8 +189,9 @@ namespace GameOfNim {
 
             while(!int.TryParse(Console.ReadLine(), out num)) {
                 Console.WriteLine("That is not a valid int.");
+                NimController.Instance.audioMan.InvalidBeep();
             }
-
+            NimController.Instance.audioMan.ValidBeep();
             return num;
         }
         public static int GetMenuInput(List<string> options) {
@@ -201,6 +205,9 @@ namespace GameOfNim {
                 isInvalid = num < 1 || num > options.Count;
                 if (isInvalid) {
                     Console.WriteLine("Please enter a number between 1 and " + options.Count);
+                    NimController.Instance.audioMan.InvalidBeep();
+                } else {
+                    NimController.Instance.audioMan.ValidBeep();
                 }
             }
 
