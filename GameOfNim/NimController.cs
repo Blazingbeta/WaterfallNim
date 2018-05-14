@@ -82,14 +82,14 @@ namespace GameOfNim {
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
                                 Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
-                                hasWon = false;
+                                hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
                                 Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
-                                hasWon = false;
+                                hasWon = true;
                             }
                         }
 
@@ -132,14 +132,14 @@ namespace GameOfNim {
                             heaps[heap] -= amo;
                             if(heaps.Sum() == 0) {
                                 Console.WriteLine(player2.playerName + " Won!" + player1.playerName + " Lost!");
-                                hasWon = false;
+                                hasWon = true;
                             }
                             DisplayHeaps();
                             player2.TakeTurn(out heap, out amo);
                             heaps[heap] -= amo;
                             if (heaps.Sum() == 0) {
                                 Console.WriteLine(player1.playerName + " Won!" + player2.playerName + " Lost!");
-                                hasWon = false;
+                                hasWon = true;
                             }
                         }
 
